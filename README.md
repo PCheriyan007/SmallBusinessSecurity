@@ -1,4 +1,4 @@
-# Endpoint Security Modernization — Small Business Client
+# Endpoint Security Modernization for Small Business Client
 
 Independent security project delivered for a small business client to modernize endpoint security, identity management, and SaaS access governance, on a limited budget and without a dedicated EDR platform.
 
@@ -6,7 +6,7 @@ Independent security project delivered for a small business client to modernize 
 
 The client's environment relied on local Windows accounts with standing administrative privileges, no centralized patch management, minimal SaaS access controls, and no endpoint detection and response (EDR) capability. This project addressed each of those gaps using existing, low-cost tooling (Action1, Google Workspace, native Windows security features) rather than introducing expensive new platforms.
 
-**Environment:** 8 Windows 11 endpoints, Google Workspace as the identity and productivity backbone.
+**Environment:** 9 Windows 11 endpoints, Google Workspace as the identity and productivity backbone.
 
 ## Skills Demonstrated
 
@@ -67,4 +67,4 @@ Designed and deployed a suite of custom PowerShell scripts in Action1 (AI-assist
 
 ---
 
-*Client details anonymized. This project was performed as independent security consulting work outside of primary employment.*
+*Client details anonymized. This project was performed as independent security consulting work.*
