@@ -7,7 +7,7 @@
     Deploy through Action1 (runs as SYSTEM). The script:
       1. Checks the endpoint can reach Action1 BEFORE making changes
       2. Records every enabled local firewall rule and the firewall profile settings
-         to C:\ProgramData\BlvdIsolation\isolation-state.json (used by the release script)
+         to C:\ProgramData\Isolation\isolation-state.json (used by the release script)
       3. Disables all local firewall rules and sets every profile to block inbound AND outbound
       4. Adds allow rules only for:
            - Action1 servers and North America Remote Desktop relays (TCP 443 / 22543)
@@ -15,15 +15,15 @@
            - DHCP and IPv6 neighbor discovery (so the endpoint keeps its IP address)
       5. Verifies Action1 is still reachable. If it isn't, it rolls everything back automatically.
       6. Verifies general internet access is blocked
-      7. Emails it-admin@blvdautoinc.com that the endpoint has been isolated (a temporary
+      7. Emails RECIPIENT EMAIL that the endpoint has been isolated (a temporary
          rule opens SMTP to Gmail only for the send, then is removed). If isolation fails
          and is rolled back, a failure email is sent instead.
 
     Email uses the same settings and the DPAPI-encrypted App Password stored by the
-    Defender alert script (C:\ProgramData\BlvdDefenderAlert\smtp.cred). Optionally, an Action1
+    Defender alert script (C:\ProgramData\SERVICENAME\smtp.cred). Optionally, an Action1
     parameter named SmtpAppPassword can supply it instead.
 
-    Isolation persists across reboots until Blvd-Release-Endpoint.ps1 is run.
+    Isolation persists across reboots until ReleaseEndpoint.ps1 is run.
 
     Action1 IPs source (verify before use, Action1 may change them):
     https://www.action1.com/documentation/firewall-configuration/region-north-america/
@@ -32,9 +32,9 @@
 $ErrorActionPreference = 'Stop'
 
 # ========================= CONFIG =========================
-$StateDir  = Join-Path $env:ProgramData 'BlvdIsolation'
+$StateDir  = Join-Path $env:ProgramData 'Isolation'
 $StateFile = Join-Path $StateDir 'isolation-state.json'
-$RuleGroup = 'BLVD Endpoint Isolation'
+$RuleGroup = 'Endpoint Isolation'
 
 # Action1 servers: server.action1.com and server.na-2.action1.com
 $Action1ServerIPs = @(
@@ -67,15 +67,15 @@ function Test-Tcp {
 
 # ===================== EMAIL CONFIG (same as Defender alert script) =====================
 $Mail = @{
-    To            = 'it-admin@blvdautoinc.com'
-    From          = 'pcheriyan@blvdautoinc.com'                 # must match Username (or a verified alias of it)
-    Username      = 'pcheriyan@blvdautoinc.com'
+    To            = 'RECIPIENT EMAIL'
+    From          = 'SENDER EMAIL'                 # must match Username (or a verified alias of it)
+    Username      = 'SENDER EMAIL'
     RelayServer   = 'smtp-relay.gmail.com'                      # tried FIRST: IP-allowlisted Workspace relay, no login
     SmtpServer    = 'smtp.gmail.com'                            # FALLBACK: authenticated Gmail SMTP with App Password
     UseRelayFirst = $true
     Port          = 587
     # Reuses the DPAPI-encrypted App Password stored by the Defender alert script on this endpoint
-    CredFile      = Join-Path $env:ProgramData 'BlvdDefenderAlert\smtp.cred'
+    CredFile      = Join-Path $env:ProgramData 'SERVICENAME\smtp.cred'
 }
 # Optional: an Action1 parameter named SmtpAppPassword overrides the stored credential
 $ProvidedPassword = if ($SmtpAppPassword) { [string]$SmtpAppPassword } elseif ($env:SmtpAppPassword) { $env:SmtpAppPassword } else { '' }
@@ -338,9 +338,9 @@ Send-Notice -ThroughIsolation `
         'Status'               = 'Isolated: only Action1 management traffic is allowed'
         'Action1 connectivity' = "Confirmed (${reached}:443)"
         'General internet'     = $internetStatus
-        'To reconnect'         = 'Run Blvd-Release-Endpoint.ps1 from Action1'
+        'To reconnect'         = 'Run ReleaseEndpoint.ps1 from Action1'
     })
 
 if (-not $internetBlocked) { exit 2 }
-Say "ENDPOINT ISOLATED. Run Blvd-Release-Endpoint.ps1 to restore normal network access."
+Say "ENDPOINT ISOLATED. Run ReleaseEndpoint.ps1 to restore normal network access."
 exit 0
