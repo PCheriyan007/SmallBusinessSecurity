@@ -54,16 +54,20 @@ Designed and deployed a suite of custom PowerShell scripts in Action1 (AI-assist
 
 ## Detection & Alerting *(in progress)*
 
-- Configuring automated email alerting on Windows Defender detection/response events (Event ID 1116/1117) via Action1.
-- Currently finalizing which email account to use for secure alert delivery.
+- [Configuring automated email alerting on Windows Defender detection/response events (Event ID 1116/1117) via Action1](https://github.com/PCheriyan007/SmallBusinessSecurity/blob/main/DefenderAlert.ps1).
+- Currently validating email alerting.
 - Goal: extend EDR-adjacent incident response capability in an environment without a dedicated EDR platform, at no added licensing cost.
 
 ## Tooling
 
-- **Action1** — vulnerability management, patch management, script deployment
-- **Google Workspace Admin Console** — identity, API controls, Chrome management
-- **Windows Defender** — endpoint scanning and detection
-- **Claude / Gemini** — AI-assisted script development (all code manually reviewed and validated before deployment)
+- **Action1**
+  - Vulnerability management, patch management, script deployment
+- **Google Workspace Admin Console**
+  - Identity, API controls, Chrome management
+- **Windows Defender**
+  - Endpoint scanning and detection
+- **Claude / Gemini**
+  - AI-assisted script development (all code manually reviewed and validated before deployment)
 
 ---
 
