@@ -46,8 +46,8 @@ The client's environment relied on local Windows accounts with standing administ
 
 Designed and deployed a suite of custom PowerShell scripts in Action1 (AI-assisted development, manually reviewed and validated for syntax and logic) covering:
 
-- Endpoint network isolation (excluding IPs/ports required for Action1 connectivity)
-- Endpoint network reconnection
+- [Endpoint network isolation](/IsolateEndpoint.ps1) (excluding IPs/ports required for Action1 connectivity)
+- [Endpoint network reconnection](/ReleaseEndpoint.ps1)
 - On-demand Windows Defender Quick Scan
 - On-demand Windows Defender Full Disk Scan
 - [Automated managed Chrome browser deployment and enrollment](/DeployManagedChrome.ps1), replacing a manual, per-machine process
