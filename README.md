@@ -50,7 +50,7 @@ Designed and deployed a suite of custom PowerShell scripts in Action1 (AI-assist
 - Endpoint network reconnection
 - On-demand Windows Defender Quick Scan
 - On-demand Windows Defender Full Disk Scan
-- Automated managed Chrome browser deployment and enrollment, replacing a manual, per-machine process
+- [Automated managed Chrome browser deployment and enrollment](https://github.com/PCheriyan007/SmallBusinessSecurity/blob/main/DeployManagedChrome.ps1), replacing a manual, per-machine process
 
 ## Detection & Alerting *(in progress)*
 
