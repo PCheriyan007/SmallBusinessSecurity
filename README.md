@@ -54,7 +54,8 @@ Designed and deployed a suite of custom PowerShell scripts in Action1 (AI-assist
 
 ## Detection & Alerting *(in progress)*
 
-- [Configuring automated email alerting on Windows Defender detection/response events (Event ID 1116/1117) via Action1](https://github.com/PCheriyan007/SmallBusinessSecurity/blob/main/DefenderAlert.ps1).
+- Configuring [automated email alerting on Windows Defender detection/response events (Event ID 1116/1117)](https://github.com/PCheriyan007/SmallBusinessSecurity/blob/main/DefenderAlert.ps1) via Action 1.
+  - Uninstall Script
 - Currently validating email alerting.
 - Goal: extend EDR-adjacent incident response capability in an environment without a dedicated EDR platform, at no added licensing cost.
 
