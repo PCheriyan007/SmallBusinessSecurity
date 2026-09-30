@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Releases an endpoint isolated by Blvd-Isolate-Endpoint.ps1 and restores normal network access.
+    Releases an endpoint isolated by IsolateEndpoint.ps1 and restores normal network access.
 
 .DESCRIPTION
     Deploy through Action1 (runs as SYSTEM). The script:
@@ -8,11 +8,11 @@
       2. Restores each firewall profile's previous settings (enabled state, default inbound/outbound action)
       3. Re-enables exactly the firewall rules that were enabled before isolation
       4. Deletes the saved state and verifies internet access is back
-      5. Emails it-admin@blvdautoinc.com that the endpoint has been reconnected
+      5. Emails RECIPIENT EMAIL that the endpoint has been reconnected
          (or that the release failed)
 
     Email uses the same settings and the DPAPI-encrypted App Password stored by the
-    Defender alert script (C:\ProgramData\BlvdDefenderAlert\smtp.cred). Optionally, an Action1
+    Defender alert script (C:\ProgramData\SERVICENAME\smtp.cred). Optionally, an Action1
     parameter named SmtpAppPassword can supply it instead.
 
     If the state file is missing (e.g. deleted), it falls back to Windows defaults
@@ -23,9 +23,9 @@
 $ErrorActionPreference = 'Stop'
 
 # ========================= CONFIG =========================
-$StateDir       = Join-Path $env:ProgramData 'BlvdIsolation'
+$StateDir       = Join-Path $env:ProgramData 'Isolation'
 $StateFile      = Join-Path $StateDir 'isolation-state.json'
-$RuleGroup      = 'BLVD Endpoint Isolation'
+$RuleGroup      = 'Endpoint Isolation'
 $InternetTestIP = '1.1.1.1'
 # ==========================================================
 
@@ -43,15 +43,15 @@ function Test-Tcp {
 
 # ===================== EMAIL CONFIG (same as Defender alert script) =====================
 $Mail = @{
-    To            = 'it-admin@blvdautoinc.com'
-    From          = 'pcheriyan@blvdautoinc.com'                 # must match Username (or a verified alias of it)
-    Username      = 'pcheriyan@blvdautoinc.com'
+    To            = 'RECIPIENT EMAIL'
+    From          = 'SENDER EMAIL'                              # must match Username (or a verified alias of it)
+    Username      = 'SENDER EMAIL'
     RelayServer   = 'smtp-relay.gmail.com'                      # tried FIRST: IP-allowlisted Workspace relay, no login
     SmtpServer    = 'smtp.gmail.com'                            # FALLBACK: authenticated Gmail SMTP with App Password
     UseRelayFirst = $true
     Port          = 587
     # Reuses the DPAPI-encrypted App Password stored by the Defender alert script on this endpoint
-    CredFile      = Join-Path $env:ProgramData 'BlvdDefenderAlert\smtp.cred'
+    CredFile      = Join-Path $env:ProgramData 'SERVICENAME\smtp.cred'
 }
 # Optional: an Action1 parameter named SmtpAppPassword overrides the stored credential
 $ProvidedPassword = if ($SmtpAppPassword) { [string]$SmtpAppPassword } elseif ($env:SmtpAppPassword) { $env:SmtpAppPassword } else { '' }
