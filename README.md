@@ -53,19 +53,25 @@ Designed and deployed a suite of custom PowerShell scripts in Action1 (AI-assist
 - [Stopping any active Windows Defender Scans](/DefenderStopScan.ps1)
 - [Automated managed Chrome browser deployment and enrollment](/DeployManagedChrome.ps1), replacing a manual, per-machine process
 
-## Detection & Alerting *(in progress)*
+All scripts have email reporting built in to alert designated admin staff via email.
 
-- Configuring [automated email alerting on Windows Defender detection/response events (Event ID 1116/1117)](/DefenderAlert.ps1) via Action 1.
+<img width="651" height="534" alt="image" src="https://github.com/user-attachments/assets/30950a14-c688-417f-925b-e2e368b83419" />
+
+
+## Detection & Alerting
+
+- Configured [automated email alerting on Windows Defender detection/response events (Event ID 1116/1117)](/DefenderAlert.ps1) via Action 1.
   - [Uninstall Script](/DefenderAlert-Uninstall.ps1)
-- Currently validating email alerting.
 - Goal: extend EDR-adjacent incident response capability in an environment without a dedicated EDR platform, at no added licensing cost.
 
 ## Tooling
 
 - **Action1**
   - Vulnerability management, patch management, script deployment
+- **Admin by Request**
+  - Centralized privileged-access management and enforcement
 - **Google Workspace Admin Console**
-  - Identity, API controls, Chrome management
+  - Identity, API controls, Chrome browser management
 - **Windows Defender**
   - Endpoint scanning and detection
 - **Claude / Gemini**
