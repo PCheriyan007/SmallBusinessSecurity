@@ -31,7 +31,7 @@ The client's environment relied on local Windows accounts with standing administ
 - Migrated previously shared email addresses to Google Groups, configuring group-level permissions and assigning users accordingly.
 - Configured Collaborative Inboxes where applicable to support shared team workflows.
 
-<h2>SaaS Security Posture / Google Workspace Administration</h2>
+<h2>SaaS Security Posture/Google Workspace Administration</h2>
 
 - Audited Google Workspace API Controls, reviewing third-party OAuth application access across the organization.
 - Blocked unapproved third-party applications and set trust levels for approved ones.
@@ -48,7 +48,7 @@ The client's environment relied on local Windows accounts with standing administ
 <img width="2170" height="525" alt="image" src="https://github.com/user-attachments/assets/3c26c0c9-47c4-4e15-b204-8175494b7cc5" />
 
 
-<h2>Security Automation (PowerShell / Action1)</h2>
+<h2>Security Automation (PowerShell/Action1)</h2>
 
 Designed and deployed a suite of custom PowerShell scripts in Action1 (AI-assisted development, manually reviewed and validated for syntax and logic) covering:
 
@@ -74,7 +74,7 @@ All scripts have email reporting (piggybacks off of the email alerting set up fo
   - Identity, Conditional Access, API controls, Chrome Browser management
 - **Windows Defender**
   - Endpoint scanning and detection
-- **Claude / Gemini**
+- **Claude/Gemini**
   - AI-assisted script development (all code manually reviewed and validated before deployment)
 
 ---
