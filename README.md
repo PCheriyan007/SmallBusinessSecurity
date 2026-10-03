@@ -17,8 +17,6 @@ The client's environment relied on local Windows accounts with standing administ
 - EDR-adjacent detection and alerting
 - Endpoint and browser hardening
 
----
-
 ## Vulnerability & Patch Management
 
 - Deployed Action1 vulnerability and patch management software across 8 Windows 11 endpoints.
