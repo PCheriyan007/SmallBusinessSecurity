@@ -48,6 +48,9 @@ The client's environment relied on local Windows accounts with standing administ
   - [Uninstall Script](/DefenderAlert-Uninstall.ps1)
 - Goal: extend EDR-adjacent incident response capability in an environment without a dedicated EDR platform, at no added licensing cost.
 
+<img width="2170" height="525" alt="image" src="https://github.com/user-attachments/assets/3c26c0c9-47c4-4e15-b204-8175494b7cc5" />
+
+
 ## Security Automation (PowerShell / Action1)
 
 Designed and deployed a suite of custom PowerShell scripts in Action1 (AI-assisted development, manually reviewed and validated for syntax and logic) covering:
