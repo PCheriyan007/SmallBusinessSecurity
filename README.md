@@ -72,7 +72,7 @@ All scripts have email reporting (piggybacks off of the email alerting set up fo
 - **Admin by Request**
   - Centralized privileged-access management and enforcement
 - **Google Workspace Admin Console**
-  - Identity, API controls, Chrome browser management
+  - Identity, Conditional Access, API controls, Chrome Browser management
 - **Windows Defender**
   - Endpoint scanning and detection
 - **Claude / Gemini**
