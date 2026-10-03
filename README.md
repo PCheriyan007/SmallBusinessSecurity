@@ -20,8 +20,7 @@ The client's environment relied on local Windows accounts with standing administ
 <h2>Vulnerability & Patch Management</h2>
 
 - Deployed Action1 vulnerability and patch management software across 8 Windows 11 endpoints.
-- Resolved 83 overdue software updates.
-- Reduced identified vulnerabilities from 3,804 to 0 through patching and removal of vulnerable software.
+- Day 1: Resolved 83 overdue software updates and reduced identified vulnerabilities from 3,804 to 0 through patching and removal of vulnerable software.
 
 <h2>Identity & Access Management</h2>
 
