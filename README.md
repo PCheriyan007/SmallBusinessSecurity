@@ -1,14 +1,14 @@
-# Endpoint Security Modernization for Small Business Client
+<h1>Endpoint Security Modernization for Small Business Client</h1>
 
 Independent security project delivered for a small business client to modernize endpoint security, identity management, and SaaS access governance, on a limited budget and without a dedicated EDR platform.
 
-## Overview
+<h2>Overview</h2>
 
 The client's environment relied on local Windows accounts with standing administrative privileges, no centralized patch management, minimal SaaS access controls, and no endpoint detection and response (EDR) capability. This project addressed each of those gaps using existing, low-cost tooling (Action1, Google Workspace, native Windows security features) rather than introducing expensive new platforms.
 
 **Environment:** 9 Windows 11 endpoints, Google Workspace as the identity and productivity backbone.
 
-## Skills Demonstrated
+<h2>Skills Demonstrated</h2>
 
 - Vulnerability & patch management
 - Identity and access management (IAM), least-privilege enforcement
@@ -17,13 +17,13 @@ The client's environment relied on local Windows accounts with standing administ
 - EDR-adjacent detection and alerting
 - Endpoint and browser hardening
 
-## Vulnerability & Patch Management
+<h2>Vulnerability & Patch Management</h2>
 
 - Deployed Action1 vulnerability and patch management software across 8 Windows 11 endpoints.
 - Resolved 83 overdue software updates.
 - Reduced identified vulnerabilities from 3,804 to 0 through patching and removal of vulnerable software.
 
-## Identity & Access Management
+<h2>Identity & Access Management</h2>
 
 - Migrated endpoint logins from local user accounts (many with standing administrative privileges) to centralized authentication via Google Credential Provider for Windows, tied to existing Google Workspace accounts.
 - Associated migrated accounts with existing user profiles to preserve data continuity during the transition.
@@ -32,7 +32,7 @@ The client's environment relied on local Windows accounts with standing administ
 - Migrated previously shared email addresses to Google Groups, configuring group-level permissions and assigning users accordingly.
 - Configured Collaborative Inboxes where applicable to support shared team workflows.
 
-## SaaS Security Posture / Google Workspace Administration
+<h2>SaaS Security Posture / Google Workspace Administration</h2>
 
 - Audited Google Workspace API Controls, reviewing third-party OAuth application access across the organization.
 - Blocked unapproved third-party applications and set trust levels for approved ones.
@@ -40,7 +40,7 @@ The client's environment relied on local Windows accounts with standing administ
 - Routed further application access requests through admin approval rather than default user self-service.
 - Deployed and enrolled managed Chrome browsers across endpoints, enforcing login requirements, session limits, and browser configuration policies.
 
-## Detection & Alerting
+<h2>Detection & Alerting</h2>
 
 - Configured [automated email alerting on Windows Defender detection/response events (Event ID 1116/1117)](/DefenderAlert.ps1) via Action 1.
   - [Uninstall Script](/DefenderAlert-Uninstall.ps1)
@@ -49,7 +49,7 @@ The client's environment relied on local Windows accounts with standing administ
 <img width="2170" height="525" alt="image" src="https://github.com/user-attachments/assets/3c26c0c9-47c4-4e15-b204-8175494b7cc5" />
 
 
-## Security Automation (PowerShell / Action1)
+<h2>Security Automation (PowerShell / Action1)</h2>
 
 Designed and deployed a suite of custom PowerShell scripts in Action1 (AI-assisted development, manually reviewed and validated for syntax and logic) covering:
 
@@ -65,7 +65,7 @@ All scripts have email reporting (piggybacks off of the email alerting set up fo
 <img width="651" height="534" alt="image" src="https://github.com/user-attachments/assets/30950a14-c688-417f-925b-e2e368b83419" />
 
 
-## Tooling
+<h2>Tooling</h2>
 
 - **Action1**
   - Vulnerability management, patch management, script deployment
