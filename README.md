@@ -80,4 +80,4 @@ All scripts have email reporting (piggybacks off of the email alerting set up fo
 
 ---
 
-*Client details anonymized. This project was performed as independent security consulting work.*
+*Client details have been anonymized. This project was performed as independent security consulting work.*
